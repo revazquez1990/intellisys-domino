@@ -6,7 +6,6 @@ class Jugador {
         this.code = code;
         this.name = name;
         // this.fichaJugador = new Ficha();
-        // this.codigoPareja = codigoPareja;
     }
     
     get getName() {

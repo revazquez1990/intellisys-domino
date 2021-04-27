@@ -4,7 +4,6 @@ class Ficha {
         this.posicion1 = posicion1,
         this.posicion2 = posicion2
     }
-    
 }
 
 module.exports = {
