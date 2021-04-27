@@ -10,12 +10,12 @@ class Juego {
         let primerEscogido = jugadores[rand.Next(1, 4)];
         const rand = new Random();
 
-        emparejamiento = jugadores.Find(c => c.codigoJugador != primerEscogido.codigoJugador && c.codigoJugador == rand.Next(1, 4));
+        emparejamiento = jugadores.filter(c => c.codigoJugador !== primerEscogido.codigoJugador && c.codigoJugador === rand.Next(1, 4));
 
         primerEscogido.CodigoPareja = emparejamiento.codigoJugador;
         emparejamiento.CodigoPareja = primerEscogido.codigoJugador;
 
-        const ultimos = jugadores.FindAll(c => c.CodigoPareja === 0);
+        const ultimos = jugadores.filter(c => c.CodigoPareja === 0);
         if(ultimos.length == 2)
         {
             
