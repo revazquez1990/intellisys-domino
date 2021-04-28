@@ -7,7 +7,6 @@ let listaNombres, numData = 1, estado = 1;
     process.stdin.on('data', function(data){
     if (estado === 1) {
         listaNombres = data.toString().trim().split(',');
-        console.log('entra aqui');
         let codigo = 1;
         const jugadores = listaNombres.reduce((arrJugadores,valorActual) => {
             const jugador = new Jugador(valorActual,codigo);
@@ -29,10 +28,9 @@ function desplegarMenu() {
     
     process.stdin.on('data', function(data){
         if (data.toString().trim() === '1') {
-            console.log('entra aqui');
             const ronda = new Ronda(numData, listaNombres);
             console.log(ronda);
-        }
+        }else process.exit();
     });
 }
 
