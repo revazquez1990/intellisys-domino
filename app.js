@@ -3,7 +3,6 @@ const { Jugador } = require('./class/Jugador');
 const { Ronda } = require('./class/Ronda');
 
 let listaNombres, numData = 1, estado = 1;
-if (estado === 1) {
     process.stdout.write('Favor ingrese los nombres de los jugadores separados por coma: \n');
     process.stdin.on('data', function(data){
     if (estado === 1) {
@@ -22,7 +21,6 @@ if (estado === 1) {
         desplegarMenu();
     }
 });
-} 
 
 function desplegarMenu() {
     process.stdout.write('Marque la opcion deseada \n');
