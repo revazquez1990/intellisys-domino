@@ -1,4 +1,6 @@
 const { Ficha } = require('./Ficha');
+const {getRandomArbitrary} = require('../helpers/random');
+
 class Ronda {
 
     constructor(numData, players) {
@@ -6,23 +8,38 @@ class Ronda {
         this.jugadores = players;
         this.fichas = [];
         this.inicializarData();
+        this.asignarFichasAJugadores();
     }
 
     inicializarData() {
         for (let i = 0; i <= 6; i++){
             for (let j = i; j <= 6; j++)
             {
-                this.fichas.concat(new Ficha(i, j));
+                this.fichas.push(new Ficha(i, j));
             }
         }
     }
 
     asignarFichasAJugadores(){
+        console.log(this.jugadores);
         if (this.jugadores.length > 4)
             throw new Exception("Hay mas jugadores, deben ser solo 4");
-        let rand = new Random();
-        rand.Next(0, this.fichas.length - 1);
+        this.jugadores.forEach((jugador, index) => {
+            
+            while(this.jugadores[index].fichasJugador.length < 7){
+                const aleatorio = Math.floor(getRandomArbitrary(0,this.fichas.length));
+                this.jugadores[index].fichasJugador.push(this.fichas[aleatorio]);
+                this.fichas.splice(aleatorio,1);
+            }
+            console.log('Fichas del jugador ' + jugador.nombre + ':');
+            console.log(this.jugadores[index].fichasJugador);
+        });
     }
+
+    jugarRonda(){
+        
+    }
+
 }
 
 module.exports = {
